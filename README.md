@@ -1,2 +1,5 @@
 # windows-gitbash-configuration
-bashrc and other things I use on my windows machine
+My git bash setup.
+Very minimal.
+Primarily setup to use solarized colours.
+
