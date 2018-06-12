@@ -1,0 +1,57 @@
+[user]
+	name = Eakan Gopalakrishnan
+	email = random@domain.com
+[core]
+	editor = C:/emacs-25.3_1-x86_64/bin/emacs
+
+[alias]
+	# log of recent commits aliases
+	dl = "!git ll -1"
+	dlc = diff --cached HEAD^
+	dr  = "!f() { git diff "$1"^.."$1"; }; f"
+	lc  = "!f() { git ll "$1"^.."$1"; }; f"
+	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+
+	# find your files
+	f = "!git ls-files | grep -i"
+	gr = grep -Ii
+
+	# display aliases on command line
+	la = "!git config -l | grep alias | cut -c 7-"
+
+	# Rename [branch] to done-[branch] 
+	# If I wanted to quickly rename branches prepending done- to their names. 
+	# Here is the alias that came out of that workflow:
+	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+
+	# most useful shortcuts
+	cp = cherry-pick
+	st = status -s
+	cl = clone
+	ci = commit
+	co = checkout
+	br = branch 
+	diff = diff --word-diff
+	dc = diff --cached
+
+	# stash operations
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+
+	# git reset commands
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+
+	# all types of log aliases
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	fl = log -u
+	
