@@ -3,6 +3,10 @@ alias ee='/c/emacs/bin/emacs'
 alias ll='ls -lh --color'
 alias ls='ls --color'
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 if [ -n "$INSIDE_EMACS" ]; then
     export PS1='\[\033[32m\][\D{%F %T}]\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ '
 else
